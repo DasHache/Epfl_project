@@ -1,32 +1,32 @@
 import resistor as res
 import generator as ge
 
-def cc():
-    I = 0
-    L = ["Ug", "resistance", "courant"]
-    l = len(L) 
-    for i in range(l):
-        a = input(f"connaissez vous le/la {L[i]} du circuit ? 'value' or 'no'")
+def creation_circuit():
+    Intensité = 0
+    Liste = ["Ug", "resistance", "courant"]
+    longueur = len(Liste) 
+    ii = 0
+    
+    for i in range(longueur):    
+        a = input(f"connaissez vous le/la {Liste[i]} du circuit ? 'value' or 'no'")
         if a != "no":
             if i == 0:
                 G = ge.Generator(float(a))
             if i == 1:
                 R = res.Resistor(float(a))
             if i == 2:
-                I = float(a)
-                
-                
-    b = input("que cherchez-vous ?")
+                Intensité = float(a)
+        else:
+            ii = i
     
-    for i in range(l):
-        if b == "courant":
-            I = R.find_current(G.ret_potentiel())
-            return I
-        if b == "potentiel":
-            Ug = R.find_potential(I) 
-            return Ug
-        if b == "resistance":
-            R = G.find_resistance(I)
-            return R
+    if Liste[ii] == "courant":
+        Intensité = R.find_current(G.ret_potentiel())
+        return Intensité
+    if Liste[ii] == "potentiel":
+        Ug = R.find_potential(Intensité) 
+        return Ug
+    if Liste[ii] == "resistance":
+        R = G.find_resistance(Intensité)
+        return R
         
-print(cc())
+print(creation_circuit())
