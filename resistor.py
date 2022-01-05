@@ -12,5 +12,22 @@ class Resistor:
     def find_potential(self, current):
         return current * self.r
     
-#find if it is possible to indicate an attribute which is not always known
-#for example for potential and current
+    def resistance_serie(self, other):
+        NR = Resistor(self.r + other.r)
+        return NR
+    
+    def resistance_parallele(self, other):
+        if self.r != 0 and other.r != 0:
+            newresistance = 1 / (1/self.r + 1/other.r)    
+        
+        elif self.r == 0 and other.r == 0:
+            return "no resistance, be careful maybe you have an error", 0
+        
+        elif self.r == 0:
+            newresistance = other.r
+            
+        else:
+            newresistance = self.r
+        
+        RN = Resistor(newresistance)
+        return RN
