@@ -4,7 +4,7 @@ class Resistor:
         self.r = resistance
     
     def __repr__(self):
-        return f" generator with {self.p} V as output"
+        return f"resistor of {self.r} ohm"
         
     def find_current(self, potential):
         return potential / self.r
