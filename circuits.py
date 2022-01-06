@@ -2,7 +2,7 @@ import resistor as res
 import generator as ge
 
 def creation_circuit():
-    Intensité = 0
+    Intensite = 0
     Valeures = ["Ug", "courant"]
     Resistances = []
     longueur = len(Valeures) 
@@ -33,18 +33,18 @@ def creation_circuit():
                 if i == 0:
                     G = ge.Generator(float(a))
                 if i == 1:
-                    Intensité = float(a)
+                    Intensite = float(a)
             else:
                 ii = i
         
         if Valeures[ii] == "courant":
-            Intensité = R.find_current(G.ret_potentiel())
-            return Intensité
+            Intensite = R.find_current(G.ret_potentiel())
+            return Intensite
         if Valeures[ii] == "potentiel":
-            Ug = R.find_potential(Intensité) 
+            Ug = R.find_potential(Intensite) 
             return Ug
         if Valeures[ii] == "resistance":
-            R = G.find_resistance(Intensité)
+            R = G.find_resistance(Intensite)
             return R
     else:
         return R
