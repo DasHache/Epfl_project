@@ -1,5 +1,7 @@
 # Epfl_project
 
+run circuits.py
+
 31.12.2021
 had found the idea of creating a program for circuits.
 
